@@ -1,61 +1,41 @@
-let addBtn = document.getElementById('addBtn');
-let sorteioBtn = document.getElementById('sortearBtn');
-let inputDeAdd = document.getElementById('filmesAdd').value;
-let arrDeFilmes = [];
+let addBtn = document.querySelector('#addBtn');
+let sorteioBtn = document.querySelector('#sortearBtn');
+let inputText = document.querySelector('#filmesAdd');
+let ulOptions = document.querySelector('#lugarDaLista');
+let result = document.querySelector('#resultado');
+let optionsArray = [];
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  let inputDeAdd = document.getElementById('filmesAdd').value;
+  let optionName = inputText.value;
 
   //show on the screen
-  let li = document.createElement('li');
-  li.innerHTML = inputDeAdd + '<span onclick="deleteOption(this)">x</span>';
+  let newOption = document.createElement('li');
+  newOption.innerHTML = `<span class="opcao"><h2 id='opcao'>${optionName}</h2></span>` + `<span onclick="deleteOption(this)"><i class="fa-solid fa-trash"></i></span>`;
 
-  document.querySelector('ul').appendChild(li);
+  ulOptions.appendChild(newOption);
 
-  document.getElementById('filmesAdd').value = '';
+  inputText.value = '';
 
-  arrDeFilmes.push(inputDeAdd);
-  console.log(arrDeFilmes);
+  optionsArray.push(optionName);
 });
 
-function deleteOption(li) {
+
+function deleteOption(x) {
   //console.log(li)
-  li.parentElement.remove();
-}
+  li = x.parentElement;
+  optionName = li.querySelector('.opcao')
+  //.innerText
+  
+  //optionsArray -> remover elemento = innerText do li
+  index = optionsArray.indexOf(optionName)
+  optionsArray.splice(index, 1)
 
-// function sortear (){
-//   //show result on the screen
-// }
-
-function sortearElementoDoArr(min, max) {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let result = Math.floor(step2) + min;
-  return result;
+  li.remove();
 }
 
 function sortear() {
-  let index = sortearElementoDoArr(0, arrDeFilmes.length - 1);
-  result.innerText = arrDeFilmes[index];
+  let index = Math.floor(Math.random()*optionsArray.length)
+  console.log(index);
+  result.innerText = optionsArray[index];
 }
-
-// sorteioBtn.addEventListener('click', (e)=>{
-//   e.preventDefault();
-//   let inputDeAdd = document.getElementById('filmesAdd').value;
-//   let arrDeFilmes = [];
-
-//   arrDeFilmes.push(inputDeAdd);
-//   console.log(arrDeFilmes);
-
-// })
-
-//arrDeFilmes.push(inputDeAdd);
-//console.log(arrDeFilmes);
-
-//pegar o valor do input
-//colocar num array
-//sortear array
-//mostrar resultados
-
-//botao de apagar

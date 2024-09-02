@@ -3,25 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Sorteio de filmes</title>
   </head>
   <body>
-    <h1>Sorteio de Filmes</h1>
+    <main id="container">
+      <h1 id="titulo">Sorteio de Filmes</h1>
 
-    <form action="">
-      <input id="filmesAdd" type="text" autocomplete="off" />
-      <button id="addBtn">adicionar</button>
-    </form>
+      <form action="">
+        <div id="backgroundInput">
+        <input id="filmesAdd" type="text" placeholder="digite uma opção" autocomplete="off" />
+        <button id="addBtn"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      </form>
 
-    <div>
-      <ul id="lugarDaLista"></ul>
-    </div>
+      <div>
+        <ul id="lugarDaLista">
 
-    <button id="sortearBtn" onclick="sortear()">sortear</button>
+          
+        </ul>
+      </div>
 
-    <h2></h2>
+      <button id="sortearBtn" onclick="sortear()">sortear</button>
 
-    <script src="script.js"></script>
+      <h2 id="resultado">Wes Anderson</h2>
+
+      <script src="script.js"></script>
+    </main>
   </body>
 </html>
