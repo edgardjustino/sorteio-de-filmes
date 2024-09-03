@@ -39,3 +39,10 @@ function sortear() {
   console.log(index);
   result.innerText = optionsArray[index];
 }
+
+// function deleteAll (){
+//   optionsArray = []
+//   ulOptions = '';
+//   optionName = '';
+//   newOption = '';
+// }
