@@ -8,31 +8,37 @@ let optionsArray = [];
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let optionName = inputText.value;
-    //colocar se for null o input não adicionar opção, else, adiciona
-  //show on the screen
+
+  let newOption = document.createElement('li');
 
   //checar se já escreveu a opção antes
-  //  if (optionsArray[i].includes(optionName)){
+  //  if (optionsArray.includes(optionName)){
   //  result.innerText = 'você já adicionou este'
   // } else {
 
-  let newOption = document.createElement('li');
-  newOption.innerHTML =
-    `<span class="opcao"><h2 id='opcao'>${optionName}</h2></span>` +
-    `<span onclick="deleteOption(this)"><i class="fa-solid fa-trash"></i></span>`;
+  //quando já tem um item, a mensagem pra escrever qd não tem nada não aparece mais(?)
 
-  ulOptions.appendChild(newOption);
+  if (optionName === '' || optionName.match(/^(\s)+$/)) {
+    result.innerText = 'escreva a opção';
+  } else {
+    newOption.innerHTML =
+      `<span class="opcao"><h2 id='opcao'>${optionName}</h2></span>` +
+      `<span onclick="deleteOption(this)"><i class="fa-solid fa-trash"></i></span>`;
 
-  inputText.value = '';
+    ulOptions.appendChild(newOption);
 
-  optionsArray.push(optionName);
-  //}
+    optionsArray.push(optionName);
 
- 
-  if (optionsArray.length === 1){
-    result.innerText = 'Coloque mais uma opção'
+    inputText.value = '';
   }
-  if (optionsArray.length > 1){result.innerText = '';}
+
+  if (optionsArray.length === 1) {
+    result.innerText = 'Coloque mais uma opção';
+  }
+
+  if (optionsArray.length > 1) {
+    result.innerText = '';
+  }
 });
 
 function deleteOption(x) {
@@ -51,7 +57,6 @@ function deleteOption(x) {
 function sortear() {
   if (optionsArray.length === 0) {
     result.innerText = 'Por favor, coloque uma opção';
-    
   } else if (optionsArray.length === 1) {
     result.innerText = 'Coloque mais uma opção';
   } else {
@@ -59,13 +64,9 @@ function sortear() {
     console.log(index);
     result.innerText = optionsArray[index];
   }
-
- 
 }
 
-// function deleteAll (){
-//   optionsArray = []
-//   ulOptions = '';
-//   optionName = '';
-//   newOption = '';
+//  function deleteAll (){
+// ulOptions.innerHTML = '';
+// optionsArray = [];
 // }
