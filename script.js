@@ -8,15 +8,11 @@ let optionsArray = [];
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let optionName = inputText.value;
-
   let newOption = document.createElement('li');
 
   //checar se já escreveu a opção antes
   //  if (optionsArray.includes(optionName)){
   //  result.innerText = 'você já adicionou este'
-  // } else {
-
-  //quando já tem um item, a mensagem pra escrever qd não tem nada não aparece mais(?)
 
   if (optionName === '' || optionName.match(/^(\s)+$/)) {
     result.innerText = 'escreva a opção';
@@ -32,11 +28,11 @@ addBtn.addEventListener('click', (e) => {
     inputText.value = '';
   }
 
-  if (optionsArray.length === 1) {
+  if (optionName === '' || optionName.match(/^(\s)+$/)) {
+    result.innerText = 'escreva a opção';
+  } else if (optionsArray.length === 1) {
     result.innerText = 'Coloque mais uma opção';
-  }
-
-  if (optionsArray.length > 1) {
+  } else {
     result.innerText = '';
   }
 });
