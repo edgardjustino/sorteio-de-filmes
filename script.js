@@ -8,8 +8,14 @@ let optionsArray = [];
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   let optionName = inputText.value;
-
+    //colocar se for null o input não adicionar opção, else, adiciona
   //show on the screen
+
+  //checar se já escreveu a opção antes
+  //  if (optionsArray[i].includes(optionName)){
+  //  result.innerText = 'você já adicionou este'
+  // } else {
+
   let newOption = document.createElement('li');
   newOption.innerHTML =
     `<span class="opcao"><h2 id='opcao'>${optionName}</h2></span>` +
@@ -20,6 +26,9 @@ addBtn.addEventListener('click', (e) => {
   inputText.value = '';
 
   optionsArray.push(optionName);
+  //}
+
+ 
   if (optionsArray.length === 1){
     result.innerText = 'Coloque mais uma opção'
   }

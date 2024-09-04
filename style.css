@@ -48,9 +48,10 @@ body {
   align-items: center; */
   text-align: center;
   /* background-color: var(--bright-color); */
-  max-height: 100vh;
-  min-height: 200px;
-  width: 500px;
+  height: 100vh;
+  min-width: 200px;
+  max-width: 500px;
+  width: 90vw;
   border-radius: 10px;
   overflow-y: scroll;
 }
@@ -58,6 +59,10 @@ body {
 #titulo {
   padding: 20px;
   color: var(--baby-blue-lighter);
+}
+
+#formArea {
+  width: 100%;
 }
 
 #backgroundInput {
@@ -70,7 +75,9 @@ body {
   );
   border: none;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  padding: 5px 10px;
 }
 
 input {
